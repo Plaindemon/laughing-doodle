@@ -1,5 +1,14 @@
 # Work Day Scheduler Starter Code
 
+## Live URL
+ https://plaindemon.github.io/laughing-doodle/ 
+
+## Repository link
+https://github.com/Plaindemon/laughing-doodle
+
+## ScreenShot
+
+
 ## User Story
 
 AS AN employee with a busy schedule
