@@ -1,9 +1,29 @@
-const time = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+// main functionality using jquery
+// using the click btn function to log when btn is clicked
+// $(document).ready(function() {
+// $("#sortableList").click(function() {
+//     console.log("click")
+//     $("#sortableList").sortable();
+//     $("#sortableList").disableSelection();
+// })
+// })
 
-// console.log(time)
-document.getElementById("currentDay").innerHTML += "Schedule: " + time + "";
+// saveBtn
+$(document).ready(function() {
+    $(".saveBtn").click(function() {
+        // console.log("click")
+        var taskListItem = $("textarea[name=textInputForm]").val();
+        $("p.displayText").append("<p>" + taskListItem + "</p>");
+        console.log("click")
+    });
+});
+// trashBtn
+$(document).ready(function() {
+    $(".trashBtn").click(function() {
+        console.log("click")
+        $(".displayText").remove("p");
+        
+    })
+})
 
-
-// $("#main").on("click", "div", function() {
-//     console.log("<div> was clicked");
-//   });
+//
