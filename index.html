@@ -28,14 +28,37 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
       <textarea type="submit" class="form-control" name="textInputForm" aria-describedby="hourInput" aria-label="input"></textarea>
+      <select id="hourlyTimeDropdown" class="btn" name="hTime">
+        <option value="7AM">7:00AM</option>
+        <option value="8AM">8:00AM</option>
+        <option value="9AM">9:00AM</option>
+        <option value="10AM">10:00AM</option>
+        <option value="11AM">11:00AM</option>
+        <option value="12PM">12:00PM</option>
+        <option value="1PM">1:00PM</option>
+        <option value="2PM">2:00PM</option>
+        <option value="3PM">3:00PM</option>
+        <option value="4PM">4:00PM</option>
+        <option value="5PM">5:00PM</option>
+        <option value="6PM">6:00PM</option>
+        <option value="7PM">7:00PM</option>
+        <option value="8PM">8:00PM</option>
+        <option value="9PM">9:00PM</option>
+        <option value="10PM">10:00PM</option>
+        <option value="11PM">11:00PM</option>
+        <option value="12PM">12:00PM</option>
+      </select>
+       <!-- Trash and Save Buttons added with onclick event -->
+       <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
+       <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>  
     </header>
   
     <div class="container">
       <!-- Timeblocks go here -->
        <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
-          <div class="col-1 hour rounded border border-primary">7:00AM</div>
-          <div class="col rounded border border-primary"><p class="displayText" id="sortableList"></p>
+          <div class="col-1 hour rounded border border-primary" id="hourlyTime">7:00AM</div>
+          <div class="col rounded border border-primary displayText"></p>
           </div>
           <!-- Trash and Save Buttons added with onclick event -->
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
