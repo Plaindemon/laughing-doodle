@@ -18,12 +18,13 @@ SO THAT I can manage my time effectively
 ## Acceptance Criteria
 
 GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
 
-THEN the current day is displayed at the top of the calendar
+WHEN I open the planner
+THEN the current day is displayed at the top of the calendar✔️
+-- using moment.js to get accurate info and the js to add it to the page
 
 WHEN I scroll down
-THEN I am presented with time blocks for standard business hours 
+THEN I am presented with time blocks for standard business hours ✔️
 
 WHEN I view the time blocks for that day
 THEN each time block is color-coded to indicate whether it is in the past, present, or future
