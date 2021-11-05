@@ -9,7 +9,7 @@
 
 
 $(document).ready(function() {
-    // $(".displayText").add();
+    
     // saveBtn
     $(".saveBtn").click(function() {
         // console.log("click")
@@ -25,14 +25,23 @@ $(document).ready(function() {
         
     })
     // preventDefault();
-    $('select#hourlyTimeDropdown').submit(function(e){
-        e.preventDefault();
-        var time = $('textarea#submit').val();
-        console.log(time);
-    })
-    $('select#hourlyTimeDropdown').change(function(e){
-        console.log(e.target.value);
-    })
+    function chooseHour() {
+        var timeChoice = $("#hourlyTimeDropdown").val();
+        $("select#hourlyTimeDropdown option:checked").val();
+        $( "p.displayChoice" ).html( "<b>Selected Time:</b> " + timeChoice);
+    }
+    $("select").change(chooseHour);
+    chooseHour();
+    // $.submit(function(e){
+    //     e.preventDefault();
+    //     var time = $('select#hourlyTimeDropdown').val();
+    //     console.log(time)
+    //     console.log(e.target.value);
+    // })
+    // $('select#hourlyTimeDropdown').change(function(e){
+
+    //     console.log(e.target.value);
+    // })
 
 
 });
