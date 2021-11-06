@@ -1,3 +1,12 @@
+const time = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+// const oneHourAhead = moment().startOf('hour').fromNow();
+
+
+// console.log(time)
+document.getElementById("currentDay").innerHTML += "Schedule: " + time + "";
+
+
+
 //Global Variables
 var currentTime = new Date($.now());
 console.log(currentTime);
@@ -20,7 +29,7 @@ function chooseHour() {
     var timeChoice = $("#hourlyTimeDropdown").val();
     var selection = $("select#hourlyTimeDropdown option:checked").val();
     $( "p.displayChoice" ).html( "<b>Selected Time:</b> " + timeChoice);
-    if (time === selection){
+    if (time === selection && timeChoice === selection){
         console.log('selected')
     } else if (time > selection){
         console.log('not quite the right hour')
@@ -35,20 +44,20 @@ chooseHour();
 // create a function that get the color coding of the timeblock based on the hour
 function getColorTime(){
     var colorTime = $('#hourlyTime');
-    var getColor = document.getElementsByClassName('.past', '.present', '.future');
-    // $(colorTime).add(time).toggleClass(getColor);
+    // var getColor = document.getElementsByClassName('.past', '.present', '.future');
     
-    $("div.timeColor").toggleClass(function() {
-        // console.log("click")
-       var getColor = document.getElementById('.timeColor', getColor);
-       getColor.click("past");
-        console.log(getColor)
-    });
+    if( colorTime > time) {
+        $("#colorTime").append($("div:first")).addClass("future");
+        // document.getElementById("displayText").innerHTML += getTextInput;
+    }else{
+        alert('wrong')
+    }
+    // $(colorTime).add(time).toggleClass(getColor);
      
 };
 
 //When timeblock is clicked then event can be entered
-// getColorTime();
+getColorTime();
 
 function addText(){
     var save = $(".saveBtn").click().add().val('#text-form');

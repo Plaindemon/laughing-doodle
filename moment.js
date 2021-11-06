@@ -1,10 +1,3 @@
-const time = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
-// const oneHourAhead = moment().startOf('hour').fromNow();
-
-
-// console.log(time)
-document.getElementById("currentDay").innerHTML += "Schedule: " + time + "";
-
 
 
 // console.log(currentTime);
