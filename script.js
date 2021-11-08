@@ -5,6 +5,7 @@ const time = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 // console.log(time)
 document.getElementById("currentDay").innerHTML += "Schedule: " + time + "";
 
+var tasks = JSON.parse(localStorage.getItem('container')) || [];
 
 
 //Global Variables
@@ -13,6 +14,11 @@ console.log(currentTime);
 
 
 var getTextInput = document.getElementById('#text-form');
+// sets the var to be equal to the save button 
+var buttonSave = document.getElementById('#button-save');
+
+
+
 // using the click btn function to log when btn is clicked
 // $(document).ready(function() {
 // $("#sortableList").click(function() {
@@ -29,35 +35,26 @@ function chooseHour() {
     var timeChoice = $("#hourlyTimeDropdown").val();
     var selection = $("select#hourlyTimeDropdown option:checked").val();
     $( "p.displayChoice" ).html( "<b>Selected Time:</b> " + timeChoice);
+    // create a function that get the color coding of the timeblock based on the hour
+    function getColorTime(){
+    var timeColor = $('#timeColor');
     if (time === selection && timeChoice === selection){
         console.log('selected')
-    } else if (time > selection){
-        console.log('not quite the right hour')
+    } else if (time >= selection){
+        $(timeColor).toggleClass("past");
     } else if (time <= selection){
         console.log('Current Hour selected')
     }else {
         console.log('not the right')
     };
+    };
+    getColorTime();
 }
 $("select").change(chooseHour);
 chooseHour();
-// create a function that get the color coding of the timeblock based on the hour
-function getColorTime(){
-    var colorTime = $('#hourlyTime');
-    // var getColor = document.getElementsByClassName('.past', '.present', '.future');
-    
-    if( colorTime > time) {
-        $("#colorTime").append($("div:first")).addClass("future");
-        // document.getElementById("displayText").innerHTML += getTextInput;
-    }else{
-        alert('wrong')
-    }
-    // $(colorTime).add(time).toggleClass(getColor);
-     
-};
 
 //When timeblock is clicked then event can be entered
-getColorTime();
+
 
 function addText(){
     var save = $(".saveBtn").click().add().val('#text-form');
@@ -73,7 +70,10 @@ function addText(){
 // main functionality using jquery
 $(document).ready(function() {
     
-    
+    $('#save').on('click', function(){
+        // $('.past').hide();
+        $('.past').hide();
+    });
     
 
 
