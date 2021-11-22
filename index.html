@@ -27,7 +27,22 @@
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
-      <textarea type="submit" class="form-control" name="textInputForm" aria-describedby="hourInput" aria-label="input"></textarea>
+
+
+      <form>
+        <span id="todo-item"
+          >To Do Item: <input id="to-do" type="text"/><input id="add-to-do" value="Add Item" type="submit"/></span>
+      </form>
+  
+      <hr />
+  
+      <!-- To-Do List -->
+      <div id="to-dos"></div>
+      <form id="top-text-box">
+      <input id="text-form" type="submit" class="form-control" name="textInputForm" aria-describedby="hourInput" aria-label="input"></input><!-- Trash and Save Buttons added with onclick event -->
+      <input type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger" value="🗑️"></input>
+      <input id="save" type="button" value="💾" class="col-1 rounded border border-primary saveBtn btn btn-success"></input>  
+    
       <select id="hourlyTimeDropdown" class="btn" name="hTime">
         <option value="7AM">7:00AM</option>
         <option value="8AM">8:00AM</option>
@@ -48,145 +63,148 @@
         <option value="11PM">11:00PM</option>
         <option value="12PM">12:00PM</option>
       </select>
-       <!-- Trash and Save Buttons added with onclick event -->
-       <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
-       <div id=" submit" type="submit button" value="submit" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>  
+    </form>
     </header>
   
     <p class="displayChoice">
 
     </p>
+    <form id="timeblockContainer">
     <div class="container">
       <!-- Timeblocks go here -->
        <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
-          <div class="col-1 hour rounded border border-primary" id="hourlyTime" value="7AM">7:00AM</div>
-          <div id="displayText" class="col rounded border border-primary ">
+          <div class="col-1 hour rounded border border-primary"  value="7AM">7:00AM</div>
+          <div class="col rounded border border-primary timeColor hourlyTime">
+            
           </div>
+
           <!-- Trash and Save Buttons added with onclick event -->
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
-          <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
+          <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success" id="button-save">💾</div>        
         </div>
          <!-- Columns/rows used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="8AM">8:00AM</div>
-          <div class="col rounded border border-primary"><p class="displayText"></p></div>
+          <div class="col rounded border border-primary timeColor displayText">
+            <p></p>
+          </div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>          
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success"  name="hourInput" >💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="9AM">9:00AM</div>
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="10AM">10:00AM</div>   
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="11AM">11:00AM</div>
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="12PM">12:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="1PM">1:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="2PM">2:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="3PM">3:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="4PM">4:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="5PM">5:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="6PM">6:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="7PM">7:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="8PM">8:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="9PM">9:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="10PM">10:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="11PM">11:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success">💾</div>        
         </div>
          <!-- Columns used below to structure the timeblock, input box and save / delete buttons -->
         <div class="row">
           <div class="col-1 hour rounded border border-primary" value="12PM">12:00PM</div>          
-          <div class="col rounded border border-primary"></div>
+          <div class="col rounded border border-primary timeColor displayText"></div>
           <div type="button" class="col-1 rounded border border-primary trashBtn btn btn-danger">🗑️</div>
           <div type="button" class="col-1 rounded border border-primary saveBtn btn btn-success" >💾</div>
         </div>
-        
+      <!-- </form> -->
     </div>
     <br>
     <br>
